@@ -32,7 +32,7 @@
     <!-- Inertia properties for the base -->
     <inertial>
       <mass value="25"/>
-      <inertia ixx="4.167" ixy="0" ixz="0" iyy="4.167" iyz="0" izz="8.333"/>
+      <inertia ixx="0.5781" ixy="0" ixz="0" iyy="0.5781" iyz="0" izz="0.7813"/>
     </inertial>
   </link>
 
@@ -52,8 +52,8 @@
     </collision>
     <!-- Inertia properties for the wheel -->
     <inertial>
-      <mass value="1"/>
-      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0002"/>
+      <mass value="12.5"/>
+      <inertia ixx="0.004557" ixy="0" ixz="0" iyy="0.004557" iyz="0" izz="0.003906"/>
     </inertial>
   </link>
 
@@ -73,8 +73,8 @@
     </collision>
     <!-- Inertia properties for the wheel -->
     <inertial>
-      <mass value="1"/>
-      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0002"/>
+      <mass value="12.5"/>
+      <inertia ixx="0.004557" ixy="0" ixz="0" iyy="0.004557" iyz="0" izz="0.003906"/>
     </inertial>
   </link>
 
@@ -94,8 +94,8 @@
     </collision>
     <!-- Inertia properties for the caster -->
     <inertial>
-      <mass value="0.5"/>
-      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+      <mass value="6.25"/>
+      <inertia ixx="0.002604" ixy="0" ixz="0" iyy="0.002604" iyz="0" izz="0.002604"/>
     </inertial>
   </link>
 
@@ -115,8 +115,8 @@
     </collision>
     <!-- Inertia properties for the caster -->
     <inertial>
-      <mass value="0.5"/>
-      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+      <mass value="6.25"/>
+      <inertia ixx="0.002604" ixy="0" ixz="0" iyy="0.002604" iyz="0" izz="0.002604"/>
     </inertial>
   </link>
 
@@ -125,15 +125,15 @@
     <!-- Visual and collision properties for the laser -->
     <visual>
       <geometry>
-        <cylinder length="0.15" radius="0.025"/>
+        <cylinder length="0.05" radius="0.025"/>
       </geometry>
-      <origin xyz="0 0 0.075" rpy="3.14159265359 0 0"/>
+      <origin xyz="0 0 0" rpy="3.14159265359 0 0"/>
     </visual>
     <collision>
       <geometry>
         <cylinder length="0.15" radius="0.025"/>
       </geometry>
-      <origin xyz="0 0 0.075" rpy="3.14159265359 0 0"/>
+      <origin xyz="0 0 0" rpy="3.14159265359 0 0"/>
     </collision>
     <!-- Inertia properties for the laser -->
     <inertial>
@@ -152,21 +152,21 @@
   <joint name="base_to_right_wheel" type="continuous">
     <parent link="base_link"/>
     <child link="right_wheel"/>
-    <origin xyz="0 0.2 0"/>
+    <origin xyz="0 -0.2 0"/>
     <axis xyz="0 1 0"/>
   </joint>
 
   <joint name="base_to_left_wheel" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel"/>
-    <origin xyz="0 -0.2 0"/>
+    <origin xyz="0 0.2 0"/>
     <axis xyz="0 1 0"/>
   </joint>
 
   <joint name="base_to_front_caster" type="continuous">
     <parent link="base_link"/>
     <child link="front_caster"/>
-    <origin xyz="-0.1 0 0"/>
+    <origin xyz="0.1 0 0"/>
     <axis xyz="0 1 0"/>
     <joint_properties damping="1.0" friction="0" />
   </joint>
@@ -174,7 +174,7 @@
   <joint name="base_to_back_caster" type="continuous">
     <parent link="base_link"/>
     <child link="back_caster"/>
-    <origin xyz="0.1 0 0"/>
+    <origin xyz="-0.1 0 0"/>
     <axis xyz="0 1 0"/>
     <joint_properties damping="1.0" friction="0" />
   </joint>
@@ -183,7 +183,7 @@
     <parent link="base_link"/>
     <child link="front_laser"/>
     <origin xyz="0.25 0 0.075"/>
-    <axis xyz="1 0 0"/>
+    <axis xyz="0 0 1"/>
   </joint>
 
 </robot>
