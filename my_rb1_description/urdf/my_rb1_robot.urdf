@@ -11,6 +11,33 @@
     <material name="blue">
         <color rgba="0 0 0.5 1" />
     </material>
+
+
+    <gazebo reference="base_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="right_wheel">
+        <material>Gazebo/Red</material>
+    </gazebo>
+    <gazebo reference="left_wheel">
+        <material>Gazebo/Red</material>
+    </gazebo>
+    <gazebo reference="front_caster">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="back_caster">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+
+
+
+
+
+
   <!-- Define the base footprint as the root link -->
   <link name="base_footprint"/>
 
@@ -22,7 +49,7 @@
         <cylinder length="0.3" radius="0.25"/>
       </geometry>
        <material name="blue_transparent" />
-       <origin xyz="0 0 0.15" rpy="0 0 0"/>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
     </visual>
     <collision>
       <geometry>
@@ -144,29 +171,29 @@
 
   <!-- Define joints -->
   <joint name="base_footprint_to_base_link" type="fixed">
-    <parent link="base_footprint"/>
-    <child link="base_link"/>
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
     <origin xyz="0 0 0"/>
   </joint>
 
   <joint name="base_to_right_wheel" type="continuous">
     <parent link="base_link"/>
     <child link="right_wheel"/>
-    <origin xyz="0 -0.2 0"/>
+    <origin xyz="0 -0.2 -0.15"/>
     <axis xyz="0 1 0"/>
   </joint>
 
   <joint name="base_to_left_wheel" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel"/>
-    <origin xyz="0 0.2 0"/>
+    <origin xyz="0 0.2 -0.15"/>
     <axis xyz="0 1 0"/>
   </joint>
 
   <joint name="base_to_front_caster" type="continuous">
     <parent link="base_link"/>
     <child link="front_caster"/>
-    <origin xyz="0.1 0 0"/>
+    <origin xyz="0.1 0 -0.15"/>
     <axis xyz="0 1 0"/>
     <joint_properties damping="1.0" friction="0" />
   </joint>
@@ -174,12 +201,12 @@
   <joint name="base_to_back_caster" type="continuous">
     <parent link="base_link"/>
     <child link="back_caster"/>
-    <origin xyz="-0.1 0 0"/>
+    <origin xyz="-0.1 0 -0.15"/>
     <axis xyz="0 1 0"/>
     <joint_properties damping="1.0" friction="0" />
   </joint>
 
-  <joint name="base_to_front_laser" type="continuous">
+  <joint name="base_to_front_laser" type="fixed">
     <parent link="base_link"/>
     <child link="front_laser"/>
     <origin xyz="0.25 0 0.075"/>
