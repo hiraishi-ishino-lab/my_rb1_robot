@@ -152,7 +152,7 @@
     <collision>
       <geometry>
         <cylinder length="0.05" radius="0.025"/>   
-      </geometry>
+      </geometry> 
     </collision>
     <!-- Inertia properties for the wheel -->
     <inertial>
