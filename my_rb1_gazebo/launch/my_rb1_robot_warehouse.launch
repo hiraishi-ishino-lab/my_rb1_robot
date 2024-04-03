@@ -15,7 +15,7 @@
   <!-- Show in Rviz   -->
     <node name="rviz" pkg="rviz" type="rviz" />
 
-    <arg name="x" default="0"/>
+    <arg name="x" default="-0.4"/>
     <arg name="y" default="-1.4"/>
     <arg name="z" default="0"/>
     

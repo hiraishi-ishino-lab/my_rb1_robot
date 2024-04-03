@@ -79,11 +79,11 @@
             </noise>
         </ray>
         <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-            <topicName>/laser/scan</topicName>
+            <topicName>/scan</topicName>
             <frameName>sensor_laser</frameName>
         </plugin>
     </sensor>
-    </gazebo>
+    </gazebo>rostopic echo /scan
 
 
 
@@ -93,7 +93,9 @@
 
 
   <!-- Define the base footprint as the root link -->
-  <link name="base_footprint"/>
+  <link name="base_footprint">
+
+  </link>
 
   <!-- Define the base link -->
   <link name="base_link">
@@ -201,7 +203,7 @@
     </inertial>
   </link>
 
-  <!-- Define the front laser -->
+  <!-- Define the front laser 3.14159265359-->
   <link name="front_laser">
     <!-- Visual and collision properties for the laser -->
     <visual>
@@ -232,18 +234,18 @@
     <origin xyz="0 0 -0.15"/>
   </joint>
 
-  <joint name="base_to_right_wheel" type="continuous">
+  <joint name="base_to_left_wheel" type="continuous">
     <parent link="base_link"/>
     <child link="right_wheel"/>
     <origin xyz="0 -0.2 -0.15"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
   </joint>
 
-  <joint name="base_to_left_wheel" type="continuous">
+  <joint name="base_to_right_wheel" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel"/>
     <origin xyz="0 0.2 -0.15"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
   </joint>
 
   <joint name="base_to_front_caster" type="fixed">
@@ -265,8 +267,7 @@
   <joint name="base_to_front_laser" type="fixed">
     <parent link="base_link"/>
     <child link="front_laser"/>
-    <origin xyz="0.25 0 0.075"/>
-    <axis xyz="0 0 1"/>
+    <origin xyz="0.25 0 0.075" rpy="3.14 0 0"/>
   </joint> 
 
 
